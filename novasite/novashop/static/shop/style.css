@@ -1,12 +1,19 @@
 body {
     font-family: 'Playwrite US Modern', sans-serif;
+    
 }
-.card-title{
+.Product .card .card-body .card-titlee{
     color: #C1B17E;
     font-weight: 600;
+    font-size: clamp(.5rem , 8vw , 1.1rem) !important;
 }
-.card-text{
+.Product .card .card-body .card-text{
     font-weight: 500;
+    font-size: clamp(.3rem , 5vw , .8rem) !important;
+}
+
+.Product .card .card-body .atc{
+    font-size: clamp(.3rem , 5vw , .8rem) !important;
 }
 .arrow-btn {
     background: transparent;       /* Make the background transparent */

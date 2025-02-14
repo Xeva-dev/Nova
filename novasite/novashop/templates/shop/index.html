@@ -4,103 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'shop/style.css' %}?v=1.0">
     <title>Nova</title>
 </head>
 <body>
     <div class="container">
-
         <div class="row">
-            <div class="col-mid-12">
-                {% load static %}
-<nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-        <!-- Logo instead of Navbar text -->
-        <a class="navbar-brand" href="#">
-            <img src="{% static 'shop/logo.png' %}" alt="Logo" class="img-fluid" style="max-height: 100px;">
-        </a>
-        
-
-        <!-- Toggler for small screens -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Content -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <!-- Centered Navbar Links -->
-            <ul class="navbar-nav gap-3">
-                <li class="nav-item">
-                    <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-warning" href="#">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-warning" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-warning" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Search Form on the Right -->
-        <form class="d-flex gap-3" role="search">
-            <input class="form-control me-2" type="search" name="item_name" placeholder="Search" aria-label="Search" style="border-radius: 20px;">
-            <button class="btn btn-warning" type="submit" style="border-radius: 20px;">
-                <i class="bi bi-search"></i>
-            </button>
-            <button class="btn btn-warning" type="submit" style="border-radius: 20px;">
-                <a id="cart" class="nav-link text-warning" href="#">
-                    <i class="bi bi-cart text-dark"></i>
-                </a>
-            </button>
-        </form>
-    </div>
-</nav>
-
-                
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg ">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="{% static 'shop/logo.png' %}" alt="Logo" class="img-fluid" style="max-height: 100px;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav gap-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-warning" href="#">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-warning" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-warning" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <form class="d-flex gap-3 align-items-center" role="search">
+                            <input class="form-control me-2" type="search" name="item_name" placeholder="Search" aria-label="Search" style="border-radius: 20px;">
+                            <button class="btn btn-warning d-flex align-items-center justify-content-center" type="submit" style="border-radius: 20px; width: 40px; height: 40px;">
+                                <i class="bi bi-search"></i>
+                            </button>
+                            <button id="cart" type="button" class="btn btn-warning d-flex align-items-center justify-content-center" data-bs-toggle="popover" data-bs-placement="bottom" title="Cart" style="border-radius: 20px; width: 40px; height: 40px;">
+                                <i class="bi bi-cart"></i>
+                            </button>
+                        </form>
+                    </div>
+                </nav>
             </div>
         </div>
 
-    
-        <!-- Flex container for arrows and product grid -->
-        <div class="d-flex align-items-center justify-content-between">
-            <!-- Previous Arrow -->
-            {% if product_objects.has_previous %}
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <hr style="width: 15%; height: 2px; background-color: #C1B17E;">
+            <h3 class="text-center display-8 fw-bold new-arrivals-heading" style="color: #C1B17E;"> NEW ARRIVALS</h3>
+            <hr style="width: 15%; height: 2px; background-color: #C1B17E;">
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between mt-4"> {% if product_objects.has_previous %}
             <a href="?page={{ product_objects.previous_page_number }}" class="btn btn-outline-primary arrow-btn">
                 <i class="bi bi-arrow-left-circle" style="font-size: 2rem;"></i>
             </a>
             {% else %}
             <span class="arrow-placeholder"></span>
             {% endif %}
-    
-            <!-- Product Grid -->
-            <div class="row flex-grow-1 justify-content-center">
+
+            <div class="Product row flex-grow-1 justify-content-center">
                 {% for product in product_objects %}
                 <div class="col-md-3">
                     <div class="card mb-4">
                         <img src="{{ product.image }}" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title text-warning">{{ product.title }}</h5>
-                            <p class="card-text">L.E {{ product.price }}</p>
-                            <a href="/{{  product.id  }}" class="btn btn-warning">View</a>
+                            <h5 id="nm{{product.id}}" class="card-titlee text-warning">{{ product.title }}</h5>
+                            <p class="card-text" id="price{{product.id}}">L.E {{ product.price }}</p>
+                            <a href="/{{ product.id }}" class="btn atc btn-warning">View</a>
                             <button id="{{product.id}}" class="btn atc btn-warning">Add to cart</button>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-    
-            <!-- Next Arrow -->
+
             {% if product_objects.has_next %}
             <a href="?page={{ product_objects.next_page_number }}" class="btn btn-outline-primary arrow-btn">
                 <i class="bi bi-arrow-right-circle" style="font-size: 2rem;"></i>
@@ -110,40 +93,98 @@
             {% endif %}
         </div>
     </div>
-            
 
-    </div>
-</body>
-<script type="text/javascript">
-    console.log('this is working');
+    <script type="text/javascript">
+$(document).ready(function() {
+    var cart = JSON.parse(localStorage.getItem('cart')) || {};
 
-    if (localStorage.getItem('cart') == null) {
-        var cart = {};
-        } else{
-        var cart = JSON.parse(localStorage.getItem('cart'));
-    }
-
-    $(document).on('click','.atc',function(){
-        console.log("the add to cart button is clicked")
+    $(document).on('click', '.atc', function() {
         var item_id = this.id.toString();
-        console.log(item_id);
+        var itemName = $("#nm" + item_id).html();
+        if (cart[item_id]) {
+    cart[item_id][0] += 1; 
+    cart[item_id][2] += parseFloat(document.getElementById("price"+item_id).innerText.replace("L.E ", ""));
+} else {
+    let price = parseFloat(document.getElementById("price"+item_id).innerText.replace("L.E ", ""));
+    cart[item_id] = [1, itemName, price];
+}
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartButton(cart);
 
-        if(cart[item_id]!=undefined){
-            cart[item_id] = cart[item_id] + 1;
+console.log("Cart updated:", cart);
 
-        }
-        else{
-            cart[item_id] = 1;
-        }
-        console.log(cart);
-        localStorage.setItem('cart',JSON.stringify(cart));
-        document.getElementById("cart").innerHTML = `<i class="bi bi-cart"></i> (${Object.keys(cart).length})`;
-
-        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartButton(cart);
     });
 
-</script>
+    updateCartButton(cart);
+
+    function updateCartButton(cart) {
+        var cartCount = Object.keys(cart).length;
+        $("#cart").html(`<i class="bi bi-cart"></i> (${cartCount})`);
+
+        let cartString = `
+    <div class="card" style="width: 250px;">
+        <div class="card-header" style="background-color: #C1B17E; color: white; text-align: center;">  <h5 class="mb-0">Your Cart</h5>
+        </div>
+        <div class="card-body p-2">
+`;
+
+        if (cartCount === 0) {
+            cartString += "<p class='text-center text-muted'>Your cart is empty.</p>";
+        } else {
+            let cartIndex = 1;
+            for (let x in cart) {
+                cartString += `
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="badge bg-secondary me-2">${cartIndex}</span>
+                        <div>
+                            <h6 class="mb-0">${$("#nm" + x).html()}</h6>
+                            <small class="text-muted">Qty: ${cart[x][0]}</small>
+                        </div>
+                    </div>
+                `;
+                cartIndex++;
+            }
+            cartString += `
+    <hr class="my-2">
+    <div class="d-grid gap-2">
+        <a href="/checkout" id="checkout" class="btn btn-sm" style="background-color: #C1B17E; color: white;">Go to Checkout</a>
+    </div>
+`;
+        }
+
+        cartString += "</div></div>";
+
+        // Initialize popover with manual trigger
+        $("#cart").popover({
+            html: true,
+            content: cartString,
+            trigger: 'manual',  // Manual control over showing/hiding
+            placement: 'bottom',
+            sanitize: false
+        });
+    }
+
+    // Toggle the popover when the cart button is clicked
+    $("#cart").on('click', function(e) {
+        e.stopPropagation();  // Prevent click event from propagating and closing the popover
+        $("#cart").popover('toggle');
+    });
+
+    // Prevent clicks inside the popover from closing it
+    $(document).on('click', '.popover', function(e) {
+        e.stopPropagation();
+    });
+
+    // Close popover when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('#cart').length && !$(e.target).closest('.popover').length) {
+            $('#cart').popover('hide');
+        }
+    });
+});
+
+    </script>
+</body>
 </html>
-
-
-
