@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from novashop import views
+from novashop.views import get_products, product_detail, index, detail, checkout  # Corrected import
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index,name='index'),
-    path('<int:id>/',views.detail,name='detail'),
-    path('checkout/',views.checkout,name='checkout'),
+    path('', index, name='index'),
+    path('<int:id>/', detail, name='detail'),
+    path('checkout/', checkout, name='checkout'),
+    
+    # API Endpoints
+    path('api/products/', get_products, name='api-products'),  # GET & POST
+    path('api/products/<int:id>/', product_detail, name='api-product-detail'),  # GET, PUT, DELETE
 ]
