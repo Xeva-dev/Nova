@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-^=4u91s)@74l7avu3hl!fz8vx(et!din6l4n(s-$7&tfx-bj9n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'drf_yasg',
     'rest_framework',
     'novashop',
     'django.contrib.admin',
