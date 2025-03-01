@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from rest_framework_api_key.models import AbstractAPIKey
 
 # Create your models here.
 class Products(models.Model):
@@ -21,3 +23,7 @@ class Order(models.Model):
     state = models.CharField(max_length=200)
     zipcode = models.CharField(max_length=200)
     total = models.CharField(max_length=200)
+
+
+class UserAPIKey(AbstractAPIKey):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="api_keys")
