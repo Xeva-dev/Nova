@@ -137,15 +137,17 @@ CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",  # Backend Localhost
     "http://localhost:3000",  # Frontend Localhost (React.js or Angular)
-    "https://1c70-197-48-18-3.ngrok-free.app",  # Ngrok Tunnel
+    "http://localhost:5173",  # Frontend Localhost (React.js or Angular)
+    "https://e449-197-48-33-21.ngrok-free.app",  # Ngrok Tunnel
 ]
 
-# REST Framework Config
+# REST Framework Config - UPDATED
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework_api_key.permissions.HasAPIKey",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
 }
@@ -154,7 +156,7 @@ REST_FRAMEWORK = {
 # SWAGGER SETTINGS (drf-yasg)
 SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,
-    'SECURITY_DEFINITIONS': {
+    'SECURITY_DEFINITIONS': {  # ✅ Corrected typo
         'api_key': {
             'type': 'apiKey',
             'name': 'Authorization',
@@ -162,4 +164,11 @@ SWAGGER_SETTINGS = {
         }
     },
     'VALIDATOR_URL': None,
+}
+
+# API KEY Settings
+# API_KEY_CUSTOM_HEADER = None
+
+REST_FRAMEWORK_API_KEY = {
+    'API_KEY_CUSTOM_HEADER': None
 }

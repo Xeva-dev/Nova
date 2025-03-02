@@ -33,9 +33,9 @@ urlpatterns = [
     path('checkout/', checkout, name='checkout'),
 
     # API Endpoints
-    path('api/products/', ProductList.as_view(), name='api-product-list'),  # ✅ Class-Based View for List & Create
-    path('api/products/all/', get_products, name='api-products'),  # GET & POST
-    path('api/products/<int:id>/', product_detail, name='api-product-detail'),  # GET, PUT, DELETE
+    path('api/products/', ProductList.as_view(), name='api-product-list'),
+    path('api/products/all/', get_products, name='api-products'),
+    path('api/products/<int:id>/', product_detail, name='api-product-detail'),
 
     # Swagger API Documentation
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

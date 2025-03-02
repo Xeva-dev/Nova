@@ -18,7 +18,7 @@ class ProductList(generics.ListCreateAPIView):
 
 # API to Get All Products or Add New Product
 @api_view(['GET', 'POST'])
-@permission_classes([HasAPIKey])  # 🔑 Add API Key permission
+@permission_classes([HasAPIKey])
 def get_products(request):
     if request.method == 'GET':
         products = Products.objects.all()
@@ -32,9 +32,8 @@ def get_products(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-# API to Get, Update, or Delete a Single Product
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([HasAPIKey])  # Added protection to this endpoint as well
 def product_detail(request, id):
     product = get_object_or_404(Products, id=id)
 
@@ -53,7 +52,6 @@ def product_detail(request, id):
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
 # Homepage View
 def index(request):
     product_objects = Products.objects.all()
@@ -68,14 +66,10 @@ def index(request):
 
     return render(request, 'shop/index.html', {'product_objects': product_objects})
 
-
-# Product Detail Page
 def detail(request, id):
     product_object = get_object_or_404(Products, id=id)
     return render(request, 'shop/detail.html', {'product_object': product_object})
 
-
-# Checkout View
 def checkout(request):
     if request.method == "POST":
         items = request.POST.get('items', "")
