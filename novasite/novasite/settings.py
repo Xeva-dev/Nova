@@ -133,12 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ### 🔑 CORS Configuration
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
-
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",  # Backend Localhost
     "http://localhost:3000",  # Frontend Localhost (React.js or Angular)
     "http://localhost:5173",  # Frontend Localhost (React.js or Angular)
-    "https://e449-197-48-33-21.ngrok-free.app",  # Ngrok Tunnel
 ]
 
 # REST Framework Config - UPDATED
@@ -152,6 +151,28 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
 # SWAGGER SETTINGS (drf-yasg)
 SWAGGER_SETTINGS = {
